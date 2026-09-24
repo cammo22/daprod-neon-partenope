@@ -128,7 +128,12 @@ function applica(n, d, info) {
 }
 
 // ============================================================ MORTI E BOTTINO
-function guadagna(l) { S.lire += l; S.totLire += l; S.lireCiclo += l; }
+function guadagna(l) {
+  S.lire += l; S.totLire += l; S.lireCiclo += l;
+  // Quello che si guadagna fa anche punti della partita DaProd (a ordini di
+  // grandezza: e' un clicker, i numeri esplodono).
+  if (window.DaProdLira) DaProdLira.punti("neon", l);
+}
 
 function morte(n) {
   n.hp = 0;
@@ -209,6 +214,7 @@ function bossSconfitto(n) {
   const r = 10 + attoDi(s).n * 8 + casoInt(0, 10), big = casoInt(1, 3);
   S.rottami += r; S.biglietti += big;
   S.bossVinti++;
+  if (window.DaProdLira) DaProdLira.evento("neon", "boss");
   if (S.bossRitirata === s) { S.stats.rivincite++; }
   S.bossRitirata = 0;
   S.energia = Math.min(energiaMax(), S.energia + energiaMax() * 0.5);

@@ -14,7 +14,7 @@ if (!DEST[dove]) { console.error('uso: node strumenti/prepara-www.mjs android|de
 const WWW = path.join(ROOT, DEST[dove]);
 fs.rmSync(WWW, { recursive: true, force: true });
 fs.mkdirSync(WWW, { recursive: true });
-for (const f of ['index.html', 'manifest.webmanifest', 'css', 'js', 'img', 'LICENSE']) {
+for (const f of ['index.html', 'daprod-lira.js', 'manifest.webmanifest', 'css', 'js', 'img', 'LICENSE']) {
   const da = path.join(ROOT, f);
   if (!fs.existsSync(da)) { console.error('manca', f); process.exit(1); }
   fs.cpSync(da, path.join(WWW, f), { recursive: true });

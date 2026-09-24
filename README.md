@@ -59,6 +59,23 @@ Libera Partenope e potrai far **eruttare** il Vesuvio: la città ricomincia, pi�
 | Protocollo Vesuvio | pulsante ☄️, tasto `P` | pulsante ☄️ |
 | Chiudere una finestra | `Esc` | ✕ |
 
+## 💶 Le Lire DaProd
+
+Da questa versione il gioco ha **lo stesso portafoglio degli altri giochi DaProd** —
+[Coin Dozer](https://cammo22.github.io/daprod-coin-dozer/), [Claw Machine](https://cammo22.github.io/DaProd-ClawMachine/gioca/)
+e [Neon Partenope](https://cammo22.github.io/daprod-neon-partenope/). Stanno tutti su `cammo22.github.io`, quindi il
+browser tiene **un saldo solo**.
+
+- Quello che vinci fa **punti della partita**. Quando vuoi smettere premi **Stacca**: i punti diventano **Lire DaProd**
+  alla quotazione di adesso, per la tua fetta (15%), fino a L.3.000 al giorno.
+- **La Borsa della Lira**: la quotazione sale quando si spende e scende quando si incassa, con un'onda lenta uguale
+  per tutti. Staccare subito o aspettare è parte del gioco.
+- Con le Lire si **ricarica** (L.100 → un minuto di produzione del quartiere).
+- Dentro la [DaProd Suite](https://github.com/cammo22/DaProdSuite) il gioco sta nella **sala giochi**: lì il
+  portafoglio è quello del computer, e le cose grosse danno **carte** per la slot delle combinazioni.
+
+Il codice è `daprod-lira.js`, lo stesso file in tutti e quattro i posti (la copia buona sta nella suite).
+
 ## 📥 App per Android, Windows e Mac
 
 Ogni [release](https://github.com/cammo22/daprod-neon-partenope/releases/latest) ha tre file:

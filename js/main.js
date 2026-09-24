@@ -32,6 +32,21 @@ function avvio() {
   document.querySelectorAll(".versione").forEach(e => e.textContent = VERSIONE);
   preparaIntro();
   nuovaOnda();
+  // Le Lire DaProd: la partita si stacca in lire, e le lire ricaricano il
+  // quartiere. Dentro la DaProd Suite il conto lo tiene la sala giochi.
+  if (window.DaProdLira) DaProdLira.init({
+    gioco: "neon",
+    posto: "basso-destra",
+    telefono: { bottom: "74px", right: "8px" },
+    ricarica: {
+      detto: "un minuto di produzione del quartiere",
+      dai: () => {
+        const l = Math.max(1000, produzione() * 60);
+        S.lire += l; sporca();
+        toast("₤", "Ricarica DaProd", "+" + fmtLire(l), { tipo: "oro" });
+      },
+    },
+  });
   apriScheda("quartiere");
   aggiornaTesta();
   aggiornaPiedeArena(true);

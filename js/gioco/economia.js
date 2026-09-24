@@ -261,6 +261,7 @@ function erutta() {
   controllaCommissioni();
   S.energia = energiaMax();
   Suono.suona("eruzione");
+  if (window.DaProdLira) DaProdLira.evento("neon", "eruzione");
   Scena.atto(attoDi(1));
   Scena.eruzione(2);
   Fx.lampo("rgba(255,200,80,.8)");
