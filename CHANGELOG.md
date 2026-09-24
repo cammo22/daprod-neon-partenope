@@ -9,6 +9,13 @@ subito dopo il push su `main`.
 sezione `## [X.Y.Z]` e si unisce su `main`. Il resto (prove, APK, EXE, DMG, release) lo fa GitHub Actions.
 Chi gioca dal browser vede comparire "È online la vX.Y.Z — Aggiorna ora"; chi usa l'app vede "Scarica".
 
+## [2.1.1] — 2026-09-24 · Qui è una demo, le lire stanno nella suite
+
+- **Sul sito e nelle app il gioco torna la sua demo**: niente barra delle Lire DaProd, niente saldo diviso
+  fra i giochi nel browser. Le Lire DaProd, la Borsa e le carte ci sono solo giocando dalla sala giochi della
+  [DaProd Suite](https://github.com/cammo22/DaProdSuite).
+- Nella suite, se il computer DaProd non risponde, il gioco continua lo stesso.
+
 ## [2.1.0] — 2026-09-24 · Le Lire DaProd: un portafoglio per tutti i giochi 💶
 
 ### 💶 Le Lire DaProd: un portafoglio solo per tutti i giochi DaProd
