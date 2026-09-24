@@ -1,0 +1,46 @@
+# Unione automatica: le PR aperte da Claude (rami claude/*) si uniscono da sole su main appena il
+# workflow "App (Android, Windows, Mac)" è verde (prove nel browser + APK, EXE e DMG compilati).
+#
+# Un'unione fatta col GITHUB_TOKEN non fa partire altri workflow, quindi subito dopo si avviano
+# a mano la release (app.yml su main) e la pubblicazione di GitHub Pages.
+name: Unisci da solo
+
+on:
+  workflow_run:
+    workflows: ["App (Android, Windows, Mac)"]
+    types: [completed]
+
+permissions:
+  contents: write
+  pull-requests: write
+  actions: write
+  pages: write
+
+jobs:
+  unisci:
+    if: >-
+      github.event.workflow_run.event == 'pull_request' &&
+      github.event.workflow_run.conclusion == 'success' &&
+      startsWith(github.event.workflow_run.head_branch, 'claude/') &&
+      github.event.workflow_run.head_repository.full_name == github.repository
+    runs-on: ubuntu-latest
+    steps:
+      - name: Unisci la PR su main
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          RAMO: ${{ github.event.workflow_run.head_branch }}
+          SHA: ${{ github.event.workflow_run.head_sha }}
+        run: |
+          NUM=$(gh pr list -R "$REPO" --head "$RAMO" --state open --json number,headRefOid -q ".[] | select(.headRefOid == \"$SHA\") | .number")
+          if [ -z "$NUM" ]; then echo "nessuna PR aperta su $SHA (già unita o nuovi commit in arrivo)"; exit 0; fi
+          gh pr ready "$NUM" -R "$REPO" || true
+          gh pr merge "$NUM" -R "$REPO" --merge --match-head-commit "$SHA"
+          echo "PR #$NUM unita"
+      - name: Avvia release e GitHub Pages
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+        run: |
+          gh workflow run app.yml -R "$REPO" --ref main
+          gh api -X POST "repos/$REPO/pages/builds" >/dev/null || echo "Pages si aggiornerà al prossimo push"

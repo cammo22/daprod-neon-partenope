@@ -85,6 +85,10 @@ Intanto **GitHub Pages** pubblica la versione web. La versione finisce anche in 
 *«È online la v2.1.0 — Aggiorna ora»*, chi usa le app vede *«Scarica»*. Su ogni PR le app vengono
 compilate e le prove girano come controllo.
 
+**Unione automatica** ([`.github/workflows/unisci.yml`](.github/workflows/unisci.yml)): le PR aperte da
+Claude (rami `claude/*`) si uniscono da sole su `main` appena prove e app sono verdi; subito dopo partono
+la release e l'aggiornamento di GitHub Pages. Niente da cliccare.
+
 Per firmare l'APK sempre con la stessa chiave (così gli aggiornamenti si installano sopra), aggiungi ai
 segreti del repository `ANDROID_KEYSTORE_BASE64`, `ANDROID_KEYSTORE_PASSWORD`, `ANDROID_KEY_ALIAS` e
 `ANDROID_KEY_PASSWORD`. Senza segreti l'APK è firmato con una chiave di debug.
