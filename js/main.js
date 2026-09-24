@@ -37,9 +37,10 @@ function avvio() {
   if (window.DaProdLira) DaProdLira.init({
     gioco: "neon",
     ricarica: {
-      detto: "un minuto di produzione del quartiere",
-      dai: () => {
-        const l = Math.max(1000, produzione() * 60);
+      // L.100 della suite = un minuto di produzione del quartiere (almeno 1.000 lire).
+      detto: "L.100 della suite = un minuto di produzione del quartiere",
+      dai: (quante) => {
+        const l = Math.max(1000, produzione() * 60) * ((quante || 100) / 100);
         S.lire += l; sporca();
         toast("₤", "Ricarica DaProd", "+" + fmtLire(l), { tipo: "oro" });
       },

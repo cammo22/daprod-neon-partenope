@@ -9,6 +9,11 @@ subito dopo il push su `main`.
 sezione `## [X.Y.Z]` e si unisce su `main`. Il resto (prove, APK, EXE, DMG, release) lo fa GitHub Actions.
 Chi gioca dal browser vede comparire "È online la vX.Y.Z — Aggiorna ora"; chi usa l'app vede "Scarica".
 
+## [2.1.2] — 2026-09-24 · La ricarica dalla suite, quanto vuoi
+
+- Dentro la [DaProd Suite](https://github.com/cammo22/DaProdSuite) la ricarica è un portafoglio: scegli quante lire della
+  suite passare al gioco, e ogni L.100 diventa un minuto di produzione del quartiere.
+
 ## [2.1.1] — 2026-09-24 · Qui è una demo, le lire stanno nella suite
 
 - **Sul sito e nelle app il gioco torna la sua demo**: niente barra delle Lire DaProd, niente saldo diviso
