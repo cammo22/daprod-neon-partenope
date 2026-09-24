@@ -1,0 +1,10 @@
+node_modules/
+test/.out/
+android/app/src/main/assets/
+android/.gradle/
+android/build/
+android/app/build/
+desktop/www/
+desktop/dist/
+desktop/node_modules/
+*.tgz
