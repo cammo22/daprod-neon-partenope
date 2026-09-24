@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Emblema di Neon Partenope: sole synthwave, Vesuvio al neon col pennacchio e il golfo -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp" android:height="108dp"
+    android:viewportWidth="108" android:viewportHeight="108">
+    <group android:translateX="22" android:translateY="22">
+        <path android:fillColor="#FF8AD8" android:pathData="M44,14a10,10 0,1 1,0 20a10,10 0,1 1,0 -20z" />
+        <path android:fillColor="#0D0820" android:pathData="M33,26h22v1.3h-22z M33,29h22v1.8h-22z M33,32.5h22v2.2h-22z" />
+        <path android:fillColor="#150A28" android:strokeColor="#FF3DF2" android:strokeWidth="1.6"
+            android:pathData="M6,46 L20,31 L25,35 L31,23 L38,23 L44,34 L58,46 Z" />
+        <path android:fillColor="#FF5A1F" android:pathData="M30.5,23a4,1.6 0,1 1,8 0a4,1.6 0,1 1,-8 0z" />
+        <path android:fillColor="#00000000" android:strokeColor="#FFD54A" android:strokeWidth="1.6" android:strokeLineCap="round"
+            android:pathData="M32,23 q-2,-8 3,-12 q-1,6 3,8" />
+        <path android:fillColor="#00000000" android:strokeColor="#35E8FF" android:strokeWidth="2" android:pathData="M6,49 H58" />
+        <path android:fillColor="#00000000" android:strokeColor="#8835E8FF" android:strokeWidth="1.2" android:pathData="M10,53 H54 M16,57 H48" />
+    </group>
+</vector>

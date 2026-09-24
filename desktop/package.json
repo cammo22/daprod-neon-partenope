@@ -1,0 +1,33 @@
+{
+  "name": "daprod-neon-partenope",
+  "productName": "Neon Partenope",
+  "version": "0.0.0",
+  "description": "DaProd · NEON PARTENOPE: il clicker cyberpunk napoletano. Il Vesuvio è diventato un server, la sirena è in gabbia e tu sei fatto di rottami.",
+  "author": "DaProd",
+  "license": "MIT",
+  "main": "main.js",
+  "private": true,
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --publish never"
+  },
+  "devDependencies": {
+    "electron": "32.2.7",
+    "electron-builder": "25.1.8"
+  },
+  "build": {
+    "appId": "it.daprod.neonpartenope",
+    "productName": "Neon Partenope",
+    "files": ["main.js", "www/**", "build/icon.png"],
+    "directories": { "output": "dist", "buildResources": "build" },
+    "win": { "target": "portable", "icon": "build/icon.png" },
+    "portable": { "artifactName": "DaProd-Neon-Partenope-${version}.exe" },
+    "mac": {
+      "target": [{ "target": "dmg", "arch": ["universal"] }],
+      "icon": "build/icon.png",
+      "category": "public.app-category.games",
+      "identity": null
+    },
+    "dmg": { "artifactName": "DaProd-Neon-Partenope-${version}.dmg", "title": "Neon Partenope" }
+  }
+}
