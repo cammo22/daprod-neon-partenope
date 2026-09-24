@@ -401,6 +401,15 @@ const STORIA = {
 
 // ============================================================ NOVITÀ (mostrate in gioco al primo avvio di una versione)
 const NOVITA = {
+  "v2.1.3": {
+    titolo: "Il telefono, una zona per volta",
+    punti: [
+      "Sul telefono l'Arena e ogni scheda stanno a tutto schermo: niente più metà e metà.",
+      "Aprendo una scheda, l'arena resta in un riquadro che trascini dove vuoi e continui a toccare per colpire. ⤢ la riporta grande.",
+      "La Radio Partenope si salta con un tocco, e ora parla: la voce si spegne nelle Opzioni.",
+      "La mini Borsa c'è anche sul telefono, con patrimonio e danni."
+    ]
+  },
   "v2.1.2": {
     titolo: "La ricarica, quanto vuoi",
     punti: [

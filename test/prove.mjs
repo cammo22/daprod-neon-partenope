@@ -168,7 +168,9 @@ console.log('\n== COMPUTER ==');
   T('anteprima grande del robot', await page.locator('#robotGrande svg').count() === 1);
   await ev(page, () => { NP.S.rottami = 1000; });
   await page.locator('[data-azione="pezzo"][data-campo="telaio"][data-v="enforce"]').click();
-  T('telaio Enforcer comprato coi rottami', await ev(page, () => NP.S.rob.telaio === 'enforce' && NP.S.rottami === 500));
+  // Il gioco intanto va avanti e ogni tanto cade un rottame: si guarda che ne siano usciti 500, non che ne restino 500 esatti.
+  const rott = await ev(page, () => ({ t: NP.S.rob.telaio, r: NP.S.rottami }));
+  T('telaio Enforcer comprato coi rottami', rott.t === 'enforce' && rott.r <= 500 && rott.r > 400, JSON.stringify(rott));
 
   // --- MINIGIOCHI E COMMISSIONI ---
   await page.click('[data-scheda="giochi"]');
@@ -255,6 +257,40 @@ console.log('\n== TELEFONO ==');
   await btn.scrollIntoViewIfNeeded();
   await btn.tap();
   T('comprare dal telefono', await ev(page, () => NP.S.gen.aut) === 1);
+
+  // 2.1.3: una zona per volta, e l'arena nel riquadro trascinabile.
+  const pip = await ev(page, () => {
+    const a = document.getElementById('colArena').getBoundingClientRect();
+    const pn = document.getElementById('colPannelli').getBoundingClientRect();
+    return { vista: document.body.classList.contains('vista-pannello'), aw: a.width, ah: a.height, pw: pn.width, ph: pn.height, pos: getComputedStyle(document.getElementById('colArena')).position };
+  });
+  T('su una scheda: il pannello a tutto schermo', pip.vista && pip.pw > 340 && pip.ph > 500, JSON.stringify(pip));
+  T('e l\'arena in un riquadro piccolo sopra', pip.pos === 'fixed' && pip.aw <= 215 && pip.ah < 330, JSON.stringify(pip));
+  // Si tocca quando l'arena e' libera: durante l'entrata di un boss o un riavvio non si colpisce, ed e' giusto.
+  await page.waitForFunction(() => !arenaFerma() && document.querySelector('#orda .nemico'), null, { timeout: 15000 });
+  await page.waitForTimeout(300);
+  // Il centro del palco del riquadro: un tocco li' e' un colpo anche senza mirare, e i nemici si muovono.
+  const nPip = await page.locator('#palco').boundingBox();
+  const c1 = await ev(page, () => NP.S.stats.click);
+  for (let i = 0; i < 4; i++) { await page.touchscreen.tap(nPip.x + nPip.width * 0.6, nPip.y + nPip.height * 0.5); await page.waitForTimeout(80); }
+  T('nel riquadro si colpisce ancora', await ev(page, () => NP.S.stats.click) >= c1 + 2);
+  const m = await page.locator('#pipManiglia span').boundingBox();
+  const prima = await ev(page, () => document.getElementById('colArena').getBoundingClientRect().left);
+  await page.mouse.move(m.x + 10, m.y + 5); await page.mouse.down(); await page.mouse.move(m.x - 120, m.y + 200, { steps: 6 }); await page.mouse.up();
+  const dopo = await ev(page, () => document.getElementById('colArena').getBoundingClientRect().left);
+  T('il riquadro si trascina', dopo < prima - 60, prima + ' -> ' + dopo);
+  await page.tap('#pipApri');
+  await page.waitForTimeout(200);
+  const arena = await ev(page, () => ({ v: document.body.classList.contains('vista-arena'), h: document.getElementById('colArena').getBoundingClientRect().height, p: getComputedStyle(document.getElementById('colPannelli')).display }));
+  T('⤢ riporta l\'arena a tutto schermo', arena.v && arena.h > 600 && arena.p === 'none', JSON.stringify(arena));
+  await page.waitForTimeout(1300);
+  const hud = await ev(page, () => ({ on: document.getElementById('borsaHud').classList.contains('on'), pat: document.getElementById('hudPat').textContent, dps: document.getElementById('hudDps').textContent }));
+  T('mini borsa sul telefono: patrimonio e danni', hud.on && /₤/.test(hud.pat) && /💥/.test(hud.dps), JSON.stringify(hud));
+  await ev(page, () => { codaRadio.length = 0; prossimaRadio(); radio('primo messaggio della prova', { noLog: true }); radio('secondo messaggio della prova', { noLog: true }); });
+  await page.waitForTimeout(150);
+  await page.tap('#radio');
+  await page.waitForTimeout(150);
+  T('un tocco sulla Radio la salta', await ev(page, () => document.getElementById('radio').dataset.testo) === 'secondo messaggio della prova');
   T('nessun errore in console (telefono)', errori.length === 0, errori.slice(0, 3).join(' | '));
   await ctx.close();
 }

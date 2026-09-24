@@ -9,6 +9,17 @@ subito dopo il push su `main`.
 sezione `## [X.Y.Z]` e si unisce su `main`. Il resto (prove, APK, EXE, DMG, release) lo fa GitHub Actions.
 Chi gioca dal browser vede comparire "È online la vX.Y.Z — Aggiorna ora"; chi usa l'app vede "Scarica".
 
+## [2.1.3] — 2026-09-25 · Il telefono, una zona per volta
+
+- **Sul telefono una zona alla volta, a tutto schermo.** Prima l'arena stava sopra e la scheda sotto, metà
+  schermo per uno. Adesso la barra in basso comincia da **⚔️ Arena**, e ogni scheda prende tutto lo schermo.
+- **L'arena in un riquadro trascinabile (PiP).** Aprendo una scheda l'arena resta in un riquadro che si sposta
+  dalla sua maniglia e si continua a toccare per colpire; **⤢** la riporta a tutto schermo. La posizione si
+  ricorda.
+- **La Radio Partenope si salta con un tocco** su tutto il riquadro (sul telefono), e **parla**: la voce del
+  telefono o del computer, in italiano. Si spegne in Opzioni → «Voce della Radio».
+- **La mini Borsa anche sul telefono**, con **patrimonio** e **danni al secondo**, sopra il piede dell'arena.
+
 ## [2.1.2] — 2026-09-24 · La ricarica dalla suite, quanto vuoi
 
 - Dentro la [DaProd Suite](https://github.com/cammo22/DaProdSuite) la ricarica è un portafoglio: scegli quante lire della
