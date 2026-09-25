@@ -9,6 +9,14 @@ subito dopo il push su `main`.
 sezione `## [X.Y.Z]` e si unisce su `main`. Il resto (prove, APK, EXE, DMG, release) lo fa GitHub Actions.
 Chi gioca dal browser vede comparire "È online la vX.Y.Z — Aggiorna ora"; chi usa l'app vede "Scarica".
 
+## [2.1.4] — 2026-09-25 · Nella sala DaProd l'eruzione chiude la partita
+
+- Dentro la [DaProd Suite](https://github.com/cammo22/DaProdSuite) far eruttare il Vesuvio **finisce la partita**: le lire
+  fatte nel ciclo diventano lire vere nel portafoglio DaProd (contate a ordini di grandezza, col premio della velocità), e
+  il gioco **ricomincia da capo**. Si può incassare anche prima, dalla cornice della sala, senza premio.
+- **Una lira è una lira**: la ricarica dalla suite arriva uguale (prima L.100 faceva un minuto di produzione).
+- Sul sito e nelle app non cambia niente.
+
 ## [2.1.3] — 2026-09-25 · Il telefono, una zona per volta
 
 - **Sul telefono una zona alla volta, a tutto schermo.** Prima l'arena stava sopra e la scheda sotto, metà
