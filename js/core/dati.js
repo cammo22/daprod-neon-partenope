@@ -401,6 +401,15 @@ const STORIA = {
 
 // ============================================================ NOVITÀ (mostrate in gioco al primo avvio di una versione)
 const NOVITA = {
+  "v2.1.4": {
+    titolo: "Nella sala DaProd, l'eruzione chiude la partita",
+    punti: [
+      "Giocando dalla sala giochi della DaProd Suite, far eruttare il Vesuvio finisce la partita: le lire del ciclo diventano lire vere DaProd, col premio per la velocità.",
+      "Poi si ricomincia da capo. Più in fretta arrivi all'eruzione, più vale.",
+      "Una lira è una lira: la ricarica dalla suite arriva uguale.",
+      "Sul sito e nelle app non cambia niente."
+    ]
+  },
   "v2.1.3": {
     titolo: "Il telefono, una zona per volta",
     punti: [
