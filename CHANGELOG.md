@@ -9,6 +9,19 @@ subito dopo il push su `main`.
 sezione `## [X.Y.Z]` e si unisce su `main`. Il resto (prove, APK, EXE, DMG, release) lo fa GitHub Actions.
 Chi gioca dal browser vede comparire "È online la vX.Y.Z — Aggiorna ora"; chi usa l'app vede "Scarica".
 
+## [2.1.5] — 2026-09-26 · Finisci quando vuoi, e la Radio parla anche sul telefono
+
+- **Finisci e riscatta** (🏁 in alto, solo nella sala della [DaProd Suite](https://github.com/cammo22/DaProdSuite)): una
+  finestra dice quanto vale il ciclo adesso (fino a 15 € se smetti prima, sotto il tetto di quello che hai ricaricato) e
+  quanto varrebbe con l'eruzione (da 20 a 30 € più i bonus). Riscatti, e la partita ricomincia da capo.
+- **Il riquadro dell'arena si abbassa del tutto**: ▾ lo manda giù, e la linguetta «⚔️ ARENA ▴» lo rialza al volo da
+  qualunque scheda. Si ricorda com'era.
+- **Cosa indossi, a colpo d'occhio**: in Merceria la fila «Indossi adesso» slot per slot, gli indossati in cima alla
+  borsa con l'etichetta ✓ INDOSSATO; nel Ferro Vecchio la ✓ sul pezzo montato e il suo nome accanto al titolo.
+- **La Radio chiusa sparisce davvero**: prima una Radio di due righe lasciava il bordo di sotto in vista, in alto.
+- **La voce della Radio nell'app Android della suite**: la WebView non ha la sintesi vocale, e i dialoghi restavano muti.
+  Adesso, se il browser non ha una voce italiana, parla con quella del telefono (`DaProdApp.parla`, dalla suite 1.5.0).
+
 ## [2.1.4] — 2026-09-25 · Nella sala DaProd l'eruzione chiude la partita
 
 - Dentro la [DaProd Suite](https://github.com/cammo22/DaProdSuite) far eruttare il Vesuvio **finisce la partita**: le lire
