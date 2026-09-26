@@ -156,9 +156,22 @@ console.log('\n== COMPUTER ==');
   T('vetrina con 6 oggetti', await page.locator('.oggetto').count() === 6);
   await ev(page, () => { NP.compraOggetto('a_enforcer'); NP.compraOggetto('w_enforcer'); });
   await page.waitForTimeout(700);
-  T('due pezzi Enforcer accendono la sinergia', await ev(page, () => NP.energiaMax()) > 0 && await page.locator('.sinergia.on').count() >= 1);
+  T('due pezzi Enforcer accendono la sinergia', await ev(page, () => NP.energiaMax()) > 0 && await page.locator('.set-carta.on').count() >= 1);
   await ev(page, () => NP.apriPacco());
   T('pacco misterioso', await ev(page, () => NP.S.inv.length) >= 3);
+  // 2.2.0: i doppioni si potenziano da soli, i set si indossano interi, il resto si rottama.
+  const set = await ev(page, () => {
+    NP.chiudiModale();
+    for (const x of NP.S.inv) if (x.eq) NP.equipaggia(x.id, true);   // si toglie tutto
+    NP.indossaSet('enforcer');
+    const miei = NP.S.inv.filter(x => x.id.endsWith('_enforcer')).length;
+    const addosso = NP.S.inv.filter(x => x.eq && x.id.endsWith('_enforcer')).length;
+    const rott0 = NP.S.rottami;
+    NP.S.inv.push({ id: 'h_mafia', lv: 2, eq: false });
+    NP.rottamaOggetto('h_mafia');
+    return { miei, addosso, liv: NP.livelloSet('enforcer'), rottama: NP.S.rottami > rott0 && !NP.S.inv.some(x => x.id === 'h_mafia') };
+  });
+  T('set: si indossa tutto insieme, col suo livello, e il resto si rottama', set.miei >= 2 && set.addosso === set.miei && set.liv >= 2 && set.rottama, JSON.stringify(set));
   await ev(page, () => { NP.compraLab(); });
   T('laboratorio costruito', await ev(page, () => NP.S.lab.lv) === 1);
 
