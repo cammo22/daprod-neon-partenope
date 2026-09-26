@@ -170,7 +170,7 @@ console.log('\n== COMPUTER ==');
   await page.locator('[data-azione="pezzo"][data-campo="telaio"][data-v="enforce"]').click();
   // Il gioco intanto va avanti e ogni tanto cade un rottame: si guarda che ne siano usciti 500, non che ne restino 500 esatti.
   const rott = await ev(page, () => ({ t: NP.S.rob.telaio, r: NP.S.rottami }));
-  T('telaio Enforcer comprato coi rottami', rott.t === 'enforce' && rott.r <= 500 && rott.r > 400, JSON.stringify(rott));
+  T('telaio Enforcer comprato coi rottami', rott.t === 'enforce' && rott.r <= 520 && rott.r > 400, JSON.stringify(rott));
 
   // --- MINIGIOCHI E COMMISSIONI ---
   await page.click('[data-scheda="giochi"]');
@@ -325,6 +325,36 @@ console.log('\n== SALVATAGGI ==');
   await page.click('#introGioca');
   await page.waitForTimeout(300);
   T('finestra "Bentornato"', await page.locator('.bentornato').count() === 1);
+  await ctx.close();
+}
+
+// ============================================================ POTENZIAMENTI DaProd (2.1.6)
+console.log('\n== POTENZIAMENTI DaProd ==');
+{
+  const { ctx, page } = await nuovaPagina({ viewport: { width: 1280, height: 800 } });
+  const r = await ev(page, () => {
+    const o = {};
+    o.fuori = document.getElementById('bDaProd').hidden;
+    const d0 = dannoColpo(), p0 = moltProdGlobale();
+    NP_DP.accendiDP('pugno'); NP_DP.accendiDP('quart');
+    o.danno = dannoColpo() / d0; o.prod = moltProdGlobale() / p0;
+    const l0 = NP.S.lireCiclo; NP_DP.accendiDP('lire'); guadagna(100); o.lire = NP.S.lireCiclo - l0;
+    NP_DP.disegnaDP();
+    o.chip = document.querySelectorAll('#dpEffetti .dp-eff').length;
+    o.bordo = document.getElementById('dpBordo').classList.contains('su');
+    NP.S.buff.dpDan.fino = Date.now() + 4000; NP_DP.disegnaDP();
+    o.lampeggia = !!document.querySelector('#dpEffetti .dp-eff.finisce');
+    o.barra = /undefined/.test(document.getElementById('buffbar').innerHTML);
+    for (const k of ['dpDan', 'dpProd', 'dpLire']) NP.S.buff[k].fino = Date.now() - 1;
+    NP_DP.disegnaDP();
+    o.spenti = document.querySelectorAll('#dpEffetti .dp-eff').length === 0;
+    return o;
+  });
+  T('i potenziamenti DaProd non ci sono fuori dalla suite', r.fuori, JSON.stringify(r));
+  T('PUGNO ×10 e QUARTIERE ×10 moltiplicano davvero', Math.abs(r.danno - 10) < 1e-6 && Math.abs(r.prod - 10) < 1e-6, JSON.stringify(r));
+  T('LIRE ×10: cento lire guadagnate ne valgono mille', r.lire === 1000, JSON.stringify(r));
+  T('gli effetti DaProd si vedono ai lati e lampeggiano negli ultimi 10 s', r.chip === 3 && r.bordo && r.lampeggia && r.spenti, JSON.stringify(r));
+  T('la barra dei buff del gioco non si sporca', !r.barra, JSON.stringify(r));
   await ctx.close();
 }
 

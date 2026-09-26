@@ -9,6 +9,19 @@ subito dopo il push su `main`.
 sezione `## [X.Y.Z]` e si unisce su `main`. Il resto (prove, APK, EXE, DMG, release) lo fa GitHub Actions.
 Chi gioca dal browser vede comparire "È online la vX.Y.Z — Aggiorna ora"; chi usa l'app vede "Scarica".
 
+## [2.1.6] — 2026-09-26 · Niente più premio fisso: quello che metti rende
+
+- **La vincita è dinamica** (con la [DaProd Suite](https://github.com/cammo22/DaProdSuite) 1.5.1). Il caso da cui nasce:
+  «ho messo 30k euro e ho perso tutto quando ho finito». Fino alla 2.1.5 l'eruzione pagava 20-30 € qualunque cosa ci
+  avessi messo. Adesso quello che metti (ricariche e potenziamenti) rende di più quanto più vai avanti, da metà a tre
+  volte, e l'eruzione moltiplica ancora, più velocità e montepremi. Il conto lo fa la sala.
+- **🏁 Incassa e ricomincia** porta la cifra dal vivo. Toccandolo la sala dice tutto prima: quanto hai messo, la resa, la
+  fetta di DaProd, quanto arriva e che il gioco riparte da capo. Dopo il sì si riparte davvero da zero.
+- **⚡ Potenziamenti DaProd coi soldi veri**: pugno ×10, +50% di critico, quartiere ×10, lire ×10 e il SUPER ×25. Si
+  pagano dal portafoglio della suite, e ogni volta la sala chiede conferma. Contano come messi nella partita.
+- **Gli effetti DaProd accesi si vedono ai lati**, col conto alla rovescia, e lampeggiano negli ultimi dieci secondi.
+- Se all'eruzione non rispondi alla sala, il Vesuvio resta pronto: prima eruttava lo stesso e il ciclo andava perso.
+
 ## [2.1.5] — 2026-09-26 · Finisci quando vuoi, e la Radio parla anche sul telefono
 
 - **Finisci e riscatta** (🏁 in alto, solo nella sala della [DaProd Suite](https://github.com/cammo22/DaProdSuite)): una
