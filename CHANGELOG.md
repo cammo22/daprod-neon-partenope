@@ -9,6 +9,25 @@ subito dopo il push su `main`.
 sezione `## [X.Y.Z]` e si unisce su `main`. Il resto (prove, APK, EXE, DMG, release) lo fa GitHub Actions.
 Chi gioca dal browser vede comparire "È online la vX.Y.Z — Aggiorna ora"; chi usa l'app vede "Scarica".
 
+## [2.2.0] — 2026-09-26 · La Merceria dei set, e lire o euro davvero
+
+- **La Merceria gira intorno ai set**: «voglio vedere bene i set, poterli switchare e capire bene a che livello». In cima
+  c'è una carta per set coi suoi pezzi (quelli che mancano col lucchetto), il livello del set, quanti ne hai addosso e la
+  sinergia. **«Indossa il set»** mette tutti i pezzi che hai di quel set in un tocco: cambiare set è un gesto solo.
+- **I pacchi puntano ai set**: sei volte su dieci pescano fra i pezzi dei set che hai cominciato e non finito. Il pezzo
+  esce in una finestra che dice a che set appartiene e quanti ne hai. **Un doppione potenzia da solo** il pezzo che hai;
+  arrivato al livello 10 diventa rottame.
+- **Quello che non serve diventa rottame**: nella borsa, ogni pezzo non indossato ha il suo tasto ♻️.
+- **Lire o euro, davvero**: quando la sala DaProd passa agli euro cambiano anche i numeri del gioco (la testata, i
+  prezzi, la mini Borsa, i premi). Prima restavano in lire.
+- **I potenziamenti DaProd a soldi veri hanno la loro scheda**, la prima in alto nella sala: «non sono ben visibili». Il
+  bagliore ai lati resta.
+- **Gli avvisi di tempo, bonus e malus si possono spegnere** (Opzioni → Schermo). Restano i bagliori ai lati.
+- **All'incasso si riparte da capo, ma i record restano**: trofei, statistiche e opzioni tornano nella partita nuova; i
+  potenziamenti DaProd si ricomprano.
+- **Le pastiglie degli effetti non rallentano più**: prima si riscrivevano quattro volte al secondo e ogni volta si
+  ridisegnava tutto il pannello.
+
 ## [2.1.6] — 2026-09-26 · Niente più premio fisso: quello che metti rende
 
 - **La vincita è dinamica** (con la [DaProd Suite](https://github.com/cammo22/DaProdSuite) 1.5.1). Il caso da cui nasce:
