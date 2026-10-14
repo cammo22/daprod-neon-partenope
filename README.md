@@ -1,3 +1,8 @@
+<!-- discord-card -->
+<p align="center">
+  <a href="https://discord.gg/Njs52aacwq"><img src=".github/discord-card.svg" alt="Entra nella community DaProd su Discord" width="720"></a>
+</p>
+
 # DaProd · NEON PARTENOPE 🌋🧜
 
 [![▶ GIOCA ORA](https://img.shields.io/badge/%E2%96%B6_GIOCA_ORA-Neon_Partenope-ff3df2?style=for-the-badge&labelColor=1a1428)](https://cammo22.github.io/daprod-neon-partenope/)
@@ -160,14 +165,3 @@ node strumenti/prepara-www.mjs desktop && (cd desktop && npm install && npm run 
 ---
 
 **DaProd** · Napoli · Tecnologia · Creatività · rilasciato con licenza MIT.
-
----
-
-<!-- discord-card -->
-## 💬 Community
-
-<p align="center">
-  <a href="https://discord.gg/Njs52aacwq"><img src=".github/discord-card.svg" alt="Entra nella community DaProd su Discord" width="720"></a>
-</p>
-
-Domande, idee, bug o solo voglia di chiacchierare? Entra nel **[Discord di DaProd](https://discord.gg/Njs52aacwq)**: ogni app ha la sua stanza e le nuove versioni arrivano in automatico.
