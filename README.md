@@ -8,6 +8,7 @@
 [![Changelog](https://img.shields.io/badge/📅_Changelog-mantenuto-ffab00?style=flat-square)](CHANGELOG.md)
 [![Nessuna dipendenza](https://img.shields.io/badge/JavaScript-zero_dipendenze-f7df1e?style=flat-square&logo=javascript&logoColor=black)](js/)
 [![Licenza MIT](https://img.shields.io/badge/Licenza-MIT-blue?style=flat-square)](LICENSE)
+[![Discord](https://img.shields.io/badge/Discord-DaProd-5865F2?logo=discord&logoColor=white)](https://discord.gg/Njs52aacwq)
 
 > **Napoli, 2099. Il Vesuvio è diventato un server. La sirena è in gabbia. Tu sei fatto di rottami.**
 
